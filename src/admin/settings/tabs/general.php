@@ -22,6 +22,11 @@ $settings = new FF_Modules_Settings_Page();
         'description' => 'Select post type to attach VaultRE data into',
         'options' => get_post_types(),
     ]);
+
+    $settings->checkbox([
+        'key' => 'ff_vaultre_enable_cron',
+        'label' => 'Enable cron',
+    ]);
     
     $settings->save_button();
     ?>
