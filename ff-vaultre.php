@@ -52,7 +52,7 @@ class Plugin {
 
 new Plugin();
 
-include_once 'src/test/init.php';
+// include_once 'src/test/init.php';
 include_once 'class-ff-vaultre.php';
 include_once 'cron.php';
 
