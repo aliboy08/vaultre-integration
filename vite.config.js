@@ -6,7 +6,7 @@ export default {
 	plugins: [
 		v4wp({
 			input: {
-				admin: 'src/admin/admin.js',
+				data_fetch: 'src/admin/settings/tabs/data_fetch/data_fetch.js',
 			},
 			outDir: 'dist',
 		}),

@@ -1,15 +1,17 @@
 <?php
 /*
- * Plugin name: FF Plugin Boilerplate
- * Version: 2.0
- * Description: Enter plugin description here
+ * Plugin name: FF VaultRE
+ * Version: 1.0
+ * Description: VaultRE Integration
  * Plugin URI: https://www.fivebyfive.com.au/
  * Author: Five by Five
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
-namespace FFPlugin\PluginName;
+namespace FFPlugin\VaultRE;
+
+define('FF_VAULTRE_PATH', __DIR__);
 
 class Plugin {
     
@@ -21,8 +23,8 @@ class Plugin {
 
     public function __construct() {
 
-        $this->plugin_name = 'Plugin Name Here';
-        $this->plugin_slug = 'plugin_slug_here';
+        $this->plugin_name = 'FF VaultRE';
+        $this->plugin_slug = 'ff_vaultre';
         $this->plugin_url = plugins_url('/', __FILE__);
         $this->plugin_path = plugin_dir_path(__FILE__);
 
@@ -41,7 +43,7 @@ class Plugin {
         // /wp-admin/admin.php?page=plugin_slug
         add_action('admin_menu', function(){
             add_submenu_page( 'fivebyfive', $this->plugin_name, $this->plugin_name, 'manage_options', $this->plugin_slug, function(){
-                include 'admin/settings/settings.php';
+                include 'src/admin/settings/settings.php';
             });
         });
     }
@@ -49,3 +51,11 @@ class Plugin {
 }
 
 new Plugin();
+
+include_once 'src/test/init.php';
+include_once 'class-ff-vaultre.php';
+include_once 'cron.php';
+
+if( is_admin() ) {
+    include_once 'admin-functions.php';
+}
